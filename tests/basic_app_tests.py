@@ -18,5 +18,8 @@ class BasicAppTest(unittest.TestCase):
         self.assertFalse(current_app is None)
         pass
 
+    def test_app_config(self):
+        self.assertTrue(current_app.config['TESTING'])
+
 if __name__ == '__main__':
     unittest.main()
