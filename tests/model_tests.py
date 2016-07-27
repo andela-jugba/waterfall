@@ -17,3 +17,4 @@ class TestModel(TestCase):
     def test_catetory_creation(self):
         category_fiction = Category(name='Fiction')
         self.assertEqual(category_fiction.name, 'Fiction')
+
