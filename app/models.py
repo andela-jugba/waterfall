@@ -1,5 +1,9 @@
 from app import db
 
+classifications = db.Table('classifications',
+                           db.Column('book_id', db.Integer, db.ForeignKey('books.id')),
+                           db.Column('category_id', db.Integer, db.ForeignKey('categories.id'))
+                           )
 
 class Category(db.Model):
     __tablename__ = 'categories'
@@ -22,8 +26,4 @@ class Book(db.Model):
     def __repr__(self):
         return '<Book %r>' % self.name
 
-classifications = db.table('classifications',
-                           db.Column('book_id', db.Integer, db.ForeignKey('books.id')),
-                           db.Column('category_id', db.Integer, db.ForeignKey('categories.id'))
 
-)

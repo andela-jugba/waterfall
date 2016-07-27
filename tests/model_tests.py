@@ -18,3 +18,11 @@ class TestModel(TestCase):
         category_fiction = Category(name='Fiction')
         self.assertEqual(category_fiction.name, 'Fiction')
 
+    def test_classifications(self):
+        c1 = Category(name='Hacking')
+        c2 = Category(name='Coding')
+        book = Book(name='Coding to Hack')
+        book.categories.append(c1)
+        book.categories.append(c2)
+        db.session.add_all([c1,c2,book])
+        self.assertEqual(book.categories.count(), 2)
